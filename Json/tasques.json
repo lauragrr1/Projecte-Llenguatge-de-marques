@@ -1,0 +1,24 @@
+[
+    {
+      "Date": "2025-03-12",
+      "Titol": "Reunión de equipo",
+      "Descripció": "Revisió mèdica.",
+      "Hora": "10:00",
+      "Estat": false
+    },
+    {
+      "Date": "2025-03-13",
+      "Title": "Enviar informe mensual",
+      "Description": "Examen de llenguatge de marques",
+      "Hora": "14:00",
+      "Estat": false
+    },
+    {
+      "Date": "2025-03-15",
+      "Title": "Tarea de desarrollo",
+      "Description": "Desenvolupar un nou projecte.",
+      "Hora": "14:00",
+      "Estat": true
+    }
+  ]
+  //a mirar si se ueden hacer dos tipos de json con dos vaidators distintos.
