@@ -3,10 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="calendari.css">
-    <title>Calendari semanal</title>
+    <title>Calendari 2025</title>
+    <link rel="stylesheet" href="/Css/calendari.css">
 </head>
-<body>
-    <h2>Calendari semanal</h2>
+<body class="container py-4">
+    <h2 class="text-center" id="calendar-title">Enero 2025</h2>
+    <div class="d-flex justify-content-center mb-3">
+        <select id="month-select" class="form-select w-auto me-2" onchange="generateCalendar()">
+            <option value="0">Enero</option>
+            <option value="1">Febrero</option>
+            <option value="2">Marzo</option>
+            <option value="3">Abril</option>
+            <option value="4">Mayo</option>
+            <option value="5">Junio</option>
+            <option value="6">Julio</option>
+            <option value="7">Agosto</option>
+            <option value="8">Septiembre</option>
+            <option value="9">Octubre</option>
+            <option value="10">Noviembre</option>
+            <option value="11">Diciembre</option>
+        </select>
+    </div>
+    <table class="table calendar-table">
+        <thead>
+            <tr class="table-dark text-white">
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sábado</th>
+                <th>Domingo</th>
+            </tr>
+        </thead>
+        <tbody id="calendar-body"></tbody> <!--Aquí es generen els dies del mes-->
+    </table>
+    <script src="calendari.js"></script>
 </body>
 </html>
