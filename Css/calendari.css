@@ -1,25 +1,14 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.calendar {
-    width: 300px;
-}
-.month-selector {
-    margin-bottom: 20px;
-}
-table {
+.calendar-table {
     width: 100%;
     border-collapse: collapse;
 }
-th, td {
-    border: 1px solid #ddd;
+.calendar-table th, .calendar-table td {
+    border: 1px solid #000;
+    width: 14.28%;
+    height: 100px;
     text-align: center;
-    padding: 10px;
+    vertical-align: top;
 }
-th {
-    background-color: #f2f2f2;
+.empty {
+    background-color: #ddd;
 }
