@@ -5,15 +5,15 @@
       "type": "object",
       "properties": {
         "Date": { "type": "string", "format": "date" },
-        "Local name": { "type": "string" },
+        "LocalName": { "type": "string" },
         "Name": { "type": "string" },
         "National": { "type": "boolean" },
-        "Subdivision Codes": {
+        "SubdivisionCodes": {
           "type": "array",
           "items": { "type": "string" }
         }
       },
-      "required": ["Date", "Local name", "Name", "National", "Subdivision Codes"]
+      "required": ["Date", "LocalName", "Name", "National", "SubdivisionCodes"]
     }
   }
   

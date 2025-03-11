@@ -1,4 +1,4 @@
-interface Event {
+interface Festiu {
     Date: string; 
     LocalName: string;
     Name: string;
@@ -6,5 +6,5 @@ interface Event {
     SubdivisionCodes: string[];
   }
   
-  type EventsArray = Event[];
+  type FestiuArray = Festiu[];
   
