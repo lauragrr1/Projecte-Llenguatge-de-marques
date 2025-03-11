@@ -4,7 +4,7 @@ function getDaysInMonth(month, year) {
 
 function generateCalendar() {
     const month = parseInt(document.getElementById("month-select").value);
-    const year = parseInt(document.getElementById("year-select").value);
+    const year = 2025; // El año siempre será 2025
     const firstDay = new Date(year, month, 1).getDay();
     const days = getDaysInMonth(month, year);
     const calendarBody = document.getElementById("calendar-body");
