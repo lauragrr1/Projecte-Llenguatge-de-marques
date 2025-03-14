@@ -1,14 +1,55 @@
-.calendar-table {
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 20px;
+}
+
+.calendario-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+select {
+    padding: 5px;
+    font-size: 16px;
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 10px;
 }
-.calendar-table th, .calendar-table td {
-    border: 1px solid #000;
-    width: 14.28%;
-    height: 100px;
+
+thead th {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+}
+
+tbody td {
+    width: 14%;
+    height: 50px;
+    border: 1px solid #ddd;
     text-align: center;
     vertical-align: top;
+    cursor: pointer;
+    background: #fff;
 }
-.empty {
-    background-color: white;
+
+tbody td:hover {
+    background: #f0f0f0;
+}
+
+tbody td[style*="background-color: #f0f0f0"] {
+    cursor: default;
 }

@@ -1,43 +1,45 @@
-function getDaysInMonth(month, year) {
-    return new Date(year, month + 1, 0).getDate(); // Obtenció del número de dies del mes
-}
+document.addEventListener("DOMContentLoaded", function () {
+    generarCalendario(); // Genera el calendario al cargar la página
+});
 
-function generateCalendar() {
-    const month = parseInt(document.getElementById("month-select").value); // Obté el mes seleccionat
-    const year = 2025; // Any fixat al 2025
-    const firstDay = new Date(year, month, 1).getDay(); // Obté el dia de la setmana del primer dia del mes
-    const days = getDaysInMonth(month, year); // Obté el número de dies del mes
-    const calendarBody = document.getElementById("calendar-body");
-    document.getElementById("calendar-title").textContent = `${document.getElementById("month-select").options[month].text} ${year}`; // Actualitza el títol
+function generarCalendario() {
+    const mesSeleccionado = document.getElementById("mes").value;
+    const diasContainer = document.getElementById("dias");
+    diasContainer.innerHTML = ""; // Limpiar tabla antes de generar nuevo mes
     
-    calendarBody.innerHTML = ""; // Neteja el calendari anterior
-    let row = document.createElement("tr"); // Crea una nova fila
+    const year = 2025;
+    const primerDia = (new Date(year, mesSeleccionado, 1).getDay() || 7) - 1; // Ajuste para empezar en lunes
+    const ultimoDia = new Date(year, parseInt(mesSeleccionado) + 1, 0).getDate();
     
-    // Afegim cel·les buides per els dies anteriors al primer dia del mes
-    for (let i = 1; i < (firstDay === 0 ? 7 : firstDay); i++) {
-        let cell = document.createElement("td");
-        cell.classList.add("empty");
-        row.appendChild(cell);
-    }
-    
-    // Agefeix els dies del mes
-    for (let day = 1; day <= days; day++) {
-        if (row.children.length === 7) {
-            calendarBody.appendChild(row);
-            row = document.createElement("tr");
+    let diaActual = 1;
+    for (let i = 0; i < 6; i++) { // Máximo 6 filas
+        let fila = document.createElement("tr");
+        for (let j = 0; j < 7; j++) { // 7 días de la semana
+            let celda = document.createElement("td");
+            if ((i === 0 && j < primerDia) || diaActual > ultimoDia) {
+                celda.innerHTML = ""; // Celda vacía
+                celda.style.backgroundColor = "#f0f0f0"; // Estilo para celdas vacías
+            } else {
+                celda.innerHTML = diaActual;
+                celda.onclick = function () {
+                    agregarTarea(diaActual, celda);
+                };
+                diaActual++;
+            }
+            fila.appendChild(celda);
         }
-        let cell = document.createElement("td");
-        cell.innerHTML = `<strong>${day}</strong>`;
-        row.appendChild(cell);
+        diasContainer.appendChild(fila);
+        if (diaActual > ultimoDia) break;
     }
-    
-    // Afegeix cel·les buides per completar l'última fila
-    while (row.children.length < 7) {
-        let cell = document.createElement("td");
-        cell.classList.add("empty");
-        row.appendChild(cell);
-    }
-    calendarBody.appendChild(row); // Afegeix l'última fila al calendari
 }
 
-generateCalendar(); // Genera el calendari al cargar la pàgina
+function agregarTarea(dia, celda) {
+    const tarea = prompt(`Agregar tarea:`);
+    if (tarea) {
+        const tareaElement = document.createElement("div");
+        tareaElement.textContent = tarea;
+        tareaElement.style.fontSize = "12px";
+        tareaElement.style.color = "#333";
+        celda.appendChild(tareaElement);
+    }
+}
