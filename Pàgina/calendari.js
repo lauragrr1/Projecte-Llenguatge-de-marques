@@ -1,24 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-    generarCalendario(); // Genera el calendario al cargar la página
+    generarCalendario(); // Genera el calendari al cargar la pàgina
 });
 
 function generarCalendario() {
     const mesSeleccionado = document.getElementById("mes").value;
     const diasContainer = document.getElementById("dias");
-    diasContainer.innerHTML = ""; // Limpiar tabla antes de generar nuevo mes
+    diasContainer.innerHTML = ""; // Neteja la taula abans de generar un altre mes
     
     const year = 2025;
-    const primerDia = (new Date(year, mesSeleccionado, 1).getDay() || 7) - 1; // Ajuste para empezar en lunes
+    const primerDia = (new Date(year, mesSeleccionado, 1).getDay() || 7) - 1; // S'ajusta per començar la setmana en dilluns
     const ultimoDia = new Date(year, parseInt(mesSeleccionado) + 1, 0).getDate();
     
     let diaActual = 1;
-    for (let i = 0; i < 6; i++) { // Máximo 6 filas
+    for (let i = 0; i < 6; i++) { // Màxim 6 files
         let fila = document.createElement("tr");
-        for (let j = 0; j < 7; j++) { // 7 días de la semana
+        for (let j = 0; j < 7; j++) { // 7 dies de la setmana
             let celda = document.createElement("td");
             if ((i === 0 && j < primerDia) || diaActual > ultimoDia) {
-                celda.innerHTML = ""; // Celda vacía
-                celda.style.backgroundColor = "#f0f0f0"; // Estilo para celdas vacías
+                celda.innerHTML = ""; // Cel·la buida
+                celda.style.backgroundColor = "#f0f0f0"; // Estil per a cel·les buides
             } else {
                 celda.innerHTML = diaActual;
                 celda.onclick = function () {
