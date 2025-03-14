@@ -34,7 +34,7 @@ function generarCalendario() {
 }
 
 function agregarTarea(dia, celda) {
-    const tarea = prompt(`Agregar tarea:`);
+    const tarea = prompt(`Afegir tasca:`);
     if (tarea) {
         const tareaElement = document.createElement("div");
         tareaElement.textContent = tarea;
