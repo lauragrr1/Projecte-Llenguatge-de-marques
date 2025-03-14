@@ -7,21 +7,22 @@ body {
 
 .calendario-container {
     background: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 600px;
     margin: auto;
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 28px;
     margin-bottom: 10px;
 }
 
 select {
-    padding: 5px;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
 table {
@@ -34,16 +35,18 @@ thead th {
     background: black;
     color: white;
     padding: 10px;
+    font-size: 18px;
 }
 
 tbody td {
     width: 14%;
-    height: 50px;
+    height: 80px;
     border: 1px solid #ddd;
     text-align: center;
     vertical-align: top;
     cursor: pointer;
     background: #fff;
+    font-size: 18px;
 }
 
 tbody td:hover {
@@ -52,4 +55,9 @@ tbody td:hover {
 
 tbody td[style*="background-color: #f0f0f0"] {
     cursor: default;
+}
+
+tbody td div {
+    font-size: 14px;
+    margin-top: 5px;
 }
