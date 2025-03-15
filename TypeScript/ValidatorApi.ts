@@ -1,5 +1,5 @@
 import Ajv from "ajv";
-import type {Event} from "./TypeCode"; 
+import type {Festiu} from "./TypeCode"; 
 import eventSchema from "../Json/Api.json"; 
 
 const response = await fetch('https://json-schema.org/draft-07/schema#') 
