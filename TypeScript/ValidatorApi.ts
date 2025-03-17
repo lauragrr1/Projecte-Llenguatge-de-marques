@@ -17,4 +17,4 @@ console.log("Errores de validación: ", validateEvent.errors);
 } else {
 console.log(event.Date, " - ", event.LocalName); 
 }
-}); 
+});
