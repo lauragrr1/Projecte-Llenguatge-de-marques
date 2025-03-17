@@ -1,20 +1,18 @@
 import Ajv from "ajv";
-import type {Festiu} from "./TypeCode"; 
-import eventSchema from "../Json/Api.json"; 
+import {Festiu, Tasca, FestiuArray, TascaArray } from "./TypeCode"; 
+import festiusSchema from "./SchemaFestius.json"; 
+import tasquesSchema from "./SchemaTasques.json";
 
-const response = await fetch('https://json-schema.org/draft-07/schema#') 
-const data = await response.json()
-const event: Event[] = data.event 
+const fs = require('fs'); // Importem el mòdul fs per llegir fitxers locals
+const path = require('path'); // Importem path per gestionar rutes de fitxers
 
+// Llegeix els fitxers JSON locals
+const festiusData = fs.readFileSync('path/to/csvjson.json', 'utf-8');
+const festius: FestiuArray = JSON.parse(festiuData);
+const tasquesData = fs.readFileSync('path/to/tasques.json', 'utf-8');
+const tasques: TascaArray = JSON.parse(tasquesData);
+
+// Configura Ajv per a la validació
 const ajv = new Ajv();
-const validateEvent = ajv.compile(eventSchema); 
-
-
-event.forEach(event => {
-const valid = validateEvent(event); 
-if (!valid) {
-console.log("Errores de validación: ", validateEvent.errors); 
-} else {
-console.log(event.Date, " - ", event.LocalName); 
-}
-});
+const validateFestius = ajv.compile(festiusSchema);
+const validateTasques = ajv.compile(tasquesSchema);
