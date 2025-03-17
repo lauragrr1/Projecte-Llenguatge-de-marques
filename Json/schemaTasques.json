@@ -1,1 +1,16 @@
 // Per validar les tasques
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "Date": { "type": "string", "format": "date" },
+            "Titol": { "type": "string" },
+            "Descripció": { "type": "string" },
+            "Hour": { "type": "string", "pattern": ""},
+            "Status": { "type": "boolean" }
+        },
+        "required": ["Date", "Titol", "Descripcio", "Hour", "Status"]
+    }    
+}
