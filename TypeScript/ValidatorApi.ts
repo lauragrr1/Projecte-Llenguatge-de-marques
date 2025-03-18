@@ -1,10 +1,11 @@
 import Ajv from "ajv";
-import {Festiu, Tasca, FestiuArray, TascaArray } from "../TypeScript/TypeCode.ts"; 
+
+import {Festiu, Tasca, FestiuArray, TascaArray } from "TypeCode.ts"; 
 import festiusSchema from "../Json/SchemaFestius.json"; 
 import tasquesSchema from "../Json/schemaTasques.json";
 
-const fs = require('fs'); // Importem el mòdul fs per llegir fitxers locals
-const path = require('path'); // Importem path per gestionar rutes de fitxers
+import fs from 'fs'; // Importem el mòdul fs per llegir fitxers locals
+import path from 'path'; // Importem path per gestionar rutes de fitxers
 
 // Llegeix els fitxers JSON locals
 const festiusData = fs.readFileSync('path/to/csvjson.json', 'utf-8');
