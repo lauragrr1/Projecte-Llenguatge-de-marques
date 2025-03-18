@@ -18,4 +18,4 @@
 
 - [Festius](Json/csvjson.json) : Aquest fitxer conté les dades dels festius.
 
-[Tasques](Json/tasques.json) : Aquest fitxer conté les dades de les tasques.
+- [Tasques](Json/tasques.json) : Aquest fitxer conté les dades de les tasques.
