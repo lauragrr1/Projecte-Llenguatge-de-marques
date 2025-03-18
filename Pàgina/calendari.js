@@ -62,3 +62,30 @@ function mostrarFestius(festius) {
     container.appendChild(div);
   });
 }
+
+//Funció extra
+function trobarDiaDisponible(dataInicial, festius = []) {
+    /**
+     * Troba el primer dia laborable disponible després d'una data donada.
+     * Evita dissabtes, diumenges i dies festius.
+     *
+     * @param {string} dataInicial - Data en format 'YYYY-MM-DD'.
+     * @param {Array} festius - Llista de dates festives en format 'YYYY-MM-DD'.
+     * @returns {string} - Data del primer dia laborable disponible.
+     */
+    
+    let diaActual = new Date(dataInicial);
+
+    while (diaActual.getDay() === 6 || diaActual.getDay() === 0 || festius.includes(diaActual.toISOString().split('T')[0])) {
+        diaActual.setDate(diaActual.getDate() + 1); // Avançar un dia
+    }
+
+    return diaActual.toISOString().split('T')[0]; // Retorna en format 'YYYY-MM-DD'
+}
+
+// Prova
+const festiusEspanya = ["2025-12-25", "2025-12-26", "2025-01-01"]; // Dies festius personalitzats
+const dataInicial = "2025-12-24";
+const diaDisponible = trobarDiaDisponible(dataInicial, festiusEspanya);
+
+console.log(`El proper dia laborable disponible és: ${diaDisponible}`);
