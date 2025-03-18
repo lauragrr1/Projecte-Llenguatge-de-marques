@@ -46,17 +46,26 @@ function generarCalendario() {
 
 function agregarTarea(dia, celda) {
     const mesSeleccionado = document.getElementById("mes").value; // Obté el mes seleccionat
+    const clave = `2025-${parseInt(mesSeleccionado) + 1}-${dia}`;
+
+    let tareasGuardadas = localStorage.getItem(clave);
+    tareasGuardadas = tareasGuardadas ? JSON.parse(tareasGuardadas) : []; // Converteix el JSON a array
     const tarea = prompt(`Afegir tasca:`); // Sol·licita a l'usuari que afegeixi una tasca al calendari
+    
     if (tarea) {
+        tareasGuardadas.push(tarea); // Agrega la nova tasca a l'array
+        localStorage.setItem(clave, JSON.stringify(tareasGuardadas)); // // Guarda el array actualitzat
+        
+        celda.innerHTML = dia; // Restableix elnúmero del dia
+        tareasGuardadas.forEach(tarea => {
         const tareaElement = document.createElement("div"); // Crea un element per mostrar la tasca al calendari
         tareaElement.textContent = tarea; // Assigna el text de la tasca
         tareaElement.style.fontSize = "12px"; // Mida per al text
         tareaElement.style.color = "#333"; // Color per al text
         celda.appendChild(tareaElement); // Afegeix la tasca dins de la cel·la del dia seleccionat
+        })
 
-        // Per que la tasca afegida es guardi permanentment 
-        const clave = `2025-${parseInt(mesSeleccionado) + 1}-${dia}`; 
-        localStorage.setItem(clave,tarea);
+
     }
 }
 
