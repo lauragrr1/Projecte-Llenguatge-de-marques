@@ -26,7 +26,7 @@ function generarCalendario() {
                 };
 
                 // Cargar tasques guardades del LocalStorage
-                const clave = `2025-${parseInt(mesSeleccionado) + 1}-${diaActual}`
+                const clave = `2025-${parseInt(mesSeleccionado) + 1}-${diaActual}`;
                 const tareaGuardada = localStorage.getItem(clave); // Obté la tasca guardada
                 if (tareaGuardada) {
                     const tareaElement = document.createElement("div"); // Crea un element per mostrar la tasca
