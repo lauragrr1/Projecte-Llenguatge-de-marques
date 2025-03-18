@@ -1,3 +1,21 @@
 # Projecte-Llenguatge-de-marques
 
-ff 
+- [TypeCode](TypeScript/TypeCode.ts) : Aquest fitxer contés les interfícies i tipus necessaris per a les dades de festius i tasques.
+
+- [ValidatorApi](TypeScript/ValidatorApi.ts) : Aquest fitxer s'encarrega de validar les dades utilitzant JSON Schema i Ajv.
+
+- [DataProcessor](TypeScript/DataProcessor.ts) : Aquest fitxer contés les funcions per processar les dades (filtres).
+
+- [CalendariJS](Pàgina/calendari.js) : Aquest fitxer genera el calendari i permet afegir tasques.
+
+- [CalendariCSS](Pàgina/calendari.css) : Aquest fitxer conté els estils per al calendari.
+
+- [CalendariHTML](Pàgina/Calendar.html) : Aquest fitxer és la pàgina principal del calendari.
+
+- [SchemaFestius](Json/SchemaFestius.json) : Aquest fitxer conté l'esquema de validació per als festius.
+
+- [SchemaTasques](Json/schemaTasques.json) : Aquest fitxer conté l'esquema de validació per a les tasques.
+
+- [Festius](Json/csvjson.json) : Aquest fitxer conté les dades dels festius.
+
+[Tasques](Json/tasques.json) : Aquest fitxer conté les dades de les tasques.
