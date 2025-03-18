@@ -1,4 +1,3 @@
-// Per validar els festius
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
     "type": "array",
