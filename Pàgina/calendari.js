@@ -54,7 +54,7 @@ function agregarTarea(dia, celda) {
         tareaElement.style.color = "#333"; // Color per al text
         celda.appendChild(tareaElement); // Afegeix la tasca dins de la cel·la del dia seleccionat
 
-        // Per que la tasca afegida es guardi permanentment 
+        // Per que la tasca afegida es guardi permanentment ??????
         const clave = `2025-${parseInt(mesSeleccionado) + 1}-${dia}`; 
         localStorage.setItem(clave,tarea);
     }
