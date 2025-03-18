@@ -16,3 +16,19 @@ const tasques: TascaArray = JSON.parse(tasquesData);
 const ajv = new Ajv();
 const validateFestius = ajv.compile(festiusSchema);
 const validateTasques = ajv.compile(tasquesSchema);
+
+// Valida els festius
+festius.forEach(element => {
+    if (!validateFestius(festiu)) {
+        console.log("Error de validació en festiu: ", validateFestius.errors);
+    }
+});
+
+// Valida les tasques
+tasques.forEach(element => {
+    if (!validateTasques(Tasca)) {
+        console.log("Error de validació en tasca: ", validateTasques.errors);
+    }
+});
+
+console.log("validació completada.");
