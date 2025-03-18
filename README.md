@@ -1,5 +1,9 @@
 # Projecte-Llenguatge-de-marques
 
+En aquest projecte volem fer un calendari del 2025 interactiu en el que tractarem les dades de la pàgina (https://date.nager.at/PublicHoliday/Spain/2025) on hi estan tots els festius d'Espanya i les dades de les tasques que podría introduir l'usuari per a que apareguin en el calenddari.
+
+## Fitxers
+
 - [TypeCode](TypeScript/TypeCode.ts) : Aquest fitxer contés les interfícies i tipus necessaris per a les dades de festius i tasques.
 
 - [ValidatorApi](TypeScript/ValidatorApi.ts) : Aquest fitxer s'encarrega de validar les dades utilitzant JSON Schema i Ajv.

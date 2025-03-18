@@ -43,3 +43,22 @@ function agregarTarea(dia, celda) {
         celda.appendChild(tareaElement); // Afegeix la tasca dins de la cel·la del dia seleccionat
     }
 }
+
+fetch('Json/csvjson.json') 
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Verifica les dades en la consola
+    mostrarFestius(data);
+  })
+  .catch(error => console.error('Error al carregar el JSON:', error));
+
+function mostrarFestius(festius) {
+  const container = document.getElementById('festiusContainer');
+  container.innerHTML = '<h2>Festius</h2>';
+  
+  festius.forEach(festiu => {
+    const div = document.createElement('div');
+    div.innerHTML = `<strong>${festiu.Name}</strong> - ${festiu.Date}`;
+    container.appendChild(div);
+  });
+}

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendari Mensual 2025</title>
-    <link rel="stylesheet" href="calendari.css">
+    <link rel="stylesheet" href="calendari.css"> <!-- Vinculem el  css -->
 </head>
 <body>
     <div class="calendario-container">
         <h1>Calendari Mensual 2025</h1>
         <label for="mes">Selecciona un mes:</label>
-        <select id="mes" onchange="generarCalendario()">
-            <option value="0">Gener</option>
+        <select id="mes" onchange="generarCalendario()"> <!-- Deslegable amb els dotze mesos de l'any -->
+            <option value="0">Gener</option> 
             <option value="1">Febrer</option>
             <option value="2">Març</option>
             <option value="3">Abril</option>
@@ -24,15 +24,16 @@
             <option value="10">Novembre</option>
             <option value="11">Deciembre</option>
         </select>
-        <table id="calendario">
+        <div id="festiusContainer"></div>
+        <table id="calendario"> <!-- Es crea la taula calendari -->
             <thead>
                 <tr>
-                    <th>DL</th><th>DM</th><th>DX</th><th>DJ</th><th>DV</th><th>DS</th><th>DG</th>
+                    <th>DL</th><th>DM</th><th>DX</th><th>DJ</th><th>DV</th><th>DS</th><th>DG</th> <!-- Caixes de la fila del calendari amb els dies de la setmana -->
                 </tr>
             </thead>
             <tbody id="dias"></tbody>
         </table>
     </div>
-    <script src="calendari.js"></script>
+    <script src="calendari.js"></script> <!-- Vinculem el js -->
 </body>
 </html>
