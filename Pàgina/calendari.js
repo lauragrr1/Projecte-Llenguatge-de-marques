@@ -34,6 +34,7 @@ function generarCalendario() {
 }
 
 function agregarTarea(dia, celda) {
+    const mesSeleccionado = document.getElementById("mes").value; // Obté el mes seleccionat
     const tarea = prompt(`Afegir tasca:`); // Sol·licita a l'usuari que afegeixi una tasca al calendari
     if (tarea) {
         const tareaElement = document.createElement("div"); // Crea un element per mostrar la tasca al calendari
@@ -42,6 +43,7 @@ function agregarTarea(dia, celda) {
         tareaElement.style.color = "#333"; // Color per al text
         celda.appendChild(tareaElement); // Afegeix la tasca dins de la cel·la del dia seleccionat
 
+        // Per que la tasca afegida es guardi permanentment 
         const clave = `2025-${parseInt(mesSeleccionado) + 1}-${dia}`; 
         localStorage.setItem(clave,tarea);
     }
