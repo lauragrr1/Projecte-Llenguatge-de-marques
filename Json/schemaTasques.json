@@ -5,11 +5,11 @@
         "type": "object",
         "properties": {
             "Date": { "type": "string", "format": "date" },
-            "Titol": { "type": "string" },
-            "Descripció": { "type": "string" },
-            "Hour": { "type": "string", "pattern": ""},
+            "Title": { "type": "string" },
+            "Description": { "type": "string" },
+            "Hour": { "type": "string" },
             "Status": { "type": "boolean" }
         },
-        "required": ["Date", "Titol", "Descripcio", "Hour", "Status"]
-    }    
+        "required": ["Date", "Title", "Description", "Hour", "Status"]
+    }
 }
