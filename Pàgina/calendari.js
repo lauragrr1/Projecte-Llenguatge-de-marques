@@ -24,6 +24,17 @@ function generarCalendario() {
                 celda.onclick = function () {
                     agregarTarea(diaActual, celda); // Assigna la funció per afegir tasques al fer clic
                 };
+
+                // Cargar tasques guardades del LocalStorage
+                const clave = `2025-${parseInt(mesSeleccionado) + 1}-${diaActual}`
+                const tareaGuardada = localStorage.getItem(clave); // Obté la tasca guardada
+                if (tareaGuardada) {
+                    const tareaElement = document.createElement("div"); // Crea un element per mostrar la tasca
+                    tareaElement.textContent = tareaGuardada; 
+                    tareaElement.style.fontSize = "12px"; // Mida del text
+                    tareaElement.style.color = "#333"; // Color del text
+                    celda.appendChild(tareaElement); // Agrega la tasca dins de la cel·la del dia seleccionat
+                }
                 diaActual++; // Incrementa el contador de dies
             } 
             fila.appendChild(celda); // Agrega la cel·la a la fila
