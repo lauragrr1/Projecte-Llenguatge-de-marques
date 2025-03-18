@@ -49,6 +49,12 @@ function agregarTarea(dia, celda) {
     }
 }
 
+// Funció per netejar els mesos 
+function limpiarTareas() {
+    localStorage.clear(); 
+    generarCalendario();
+}
+
 fetch('Json/csvjson.json') 
   .then(response => response.json())
   .then(data => {
