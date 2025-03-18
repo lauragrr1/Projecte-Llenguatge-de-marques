@@ -1,6 +1,6 @@
 import Ajv from "ajv";
 
-import {Festiu, Tasca, FestiuArray, TascaArray } from "TypeCode.ts"; 
+import {Festiu, Tasca, FestiuArray, TascaArray } from "./TypeCode.ts"; 
 import festiusSchema from "../Json/SchemaFestius.json"; 
 import tasquesSchema from "../Json/schemaTasques.json";
 

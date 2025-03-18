@@ -41,6 +41,9 @@ function agregarTarea(dia, celda) {
         tareaElement.style.fontSize = "12px"; // Mida per al text
         tareaElement.style.color = "#333"; // Color per al text
         celda.appendChild(tareaElement); // Afegeix la tasca dins de la cel·la del dia seleccionat
+
+        const clave = `2025-${parseInt(mesSeleccionado) + 1}-${dia}`; 
+        localStorage.setItem(clave,tarea);
     }
 }
 
