@@ -10,6 +10,12 @@
     <div class="calendario-container">
         <h1>Calendari Mensual 2025</h1>
         <label for="mes">Selecciona un mes:</label>
+        <div class="buscador-container">
+            <input type="text" id="buscador-festivo" placeholder="Buscar festivo..." />
+            <button onclick="buscarFestivo()" title="Buscar festivo">
+                🔍
+            </button>
+        </div>        
         <select id="mes" onchange="generarCalendario()"> <!-- Deslegable amb els dotze mesos de l'any -->
             <option value="0">Gener</option> 
             <option value="1">Febrer</option>
