@@ -25,6 +25,8 @@ En aquest projecte volem fer un calendari del 2025 interactiu en el que tractare
 - [Tasques](Json/tasques.json) : Aquest fitxer conté les dades de les tasques.
 
 API: /v2/holidays/holidays?country=ES&state=CN&region=FU&year=2025
+
+
 Código:
 // URL base de la API
 const URL_HOLIDAYS = '/v2/holidays/holidays';
