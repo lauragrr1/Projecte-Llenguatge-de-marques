@@ -78,6 +78,22 @@ async function obtenerFestivos(mes, year) {
     }
 }
 
+// Función para buscar festivos por nombre
+function buscarFestivo() {
+    const terminoBusqueda = document.getElementById("buscador-festivo").value.toLowerCase(); // Obtener el término ingresado
+    const festiusItems = document.querySelectorAll('#festiusContainer div'); // Obtener los elementos de festivos listados
+
+    festiusItems.forEach(item => {
+        const textoFestivo = item.textContent.toLowerCase();
+        if (textoFestivo.includes(terminoBusqueda)) {
+            item.style.display = "block"; // Mostrar coincidencias
+        } else {
+            item.style.display = "none"; // Ocultar las que no coincidan
+        }
+    });
+}
+
+
 // Función para agregar una tarea
 function agregarTarea(dia, celda) {
     const mesSeleccionado = mesSelect.value;
