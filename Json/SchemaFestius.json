@@ -1,18 +1,18 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema#",
-  "type": "array",
-  "items": {
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "items": {
       "type": "object",
       "properties": {
-          "Date": { "type": "string", "format": "date" },
-          "LocalName": { "type": "string" },
-          "Name": { "type": "string" },
-          "National": { "type": "boolean" },
-          "SubdivisionCodes": {
-              "type": "array",
-              "items": { "type": "string" }
-          }
+        "date": { "type": "string", "format": "date-time" },
+        "start": { "type": "string", "format": "date-time" },
+        "end": { "type": "string", "format": "date-time" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "rule": { "type": "string" }
       },
-      "required": ["Date", "LocalName", "Name", "National", "SubdivisionCodes"]
+      "required": ["date", "start", "end", "name", "type", "rule"],
+      "additionalProperties": false
+    }
   }
-}
+  
