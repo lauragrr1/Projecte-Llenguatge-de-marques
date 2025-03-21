@@ -18,8 +18,6 @@ En aquest projecte volem fer un calendari del 2025 interactiu en el que tractare
 
 - [SchemaFestius](Json/SchemaFestius.json) : Aquest fitxer conté l'esquema de validació per als festius.
 
-- [SchemaTasques](Json/schemaTasques.json) : Aquest fitxer conté l'esquema de validació per a les tasques.
-
 - [Festius](Json/csvjson.json) : Aquest fitxer conté les dades dels festius.
 
 
