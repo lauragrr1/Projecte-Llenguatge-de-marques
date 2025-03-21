@@ -108,60 +108,95 @@ const diaDisponible = trobarDiaDisponible(dataInicial, festiusEspanya);
 console.log(`El proper dia laborable disponible és: ${diaDisponible}`);
 
 /////////////////////////////////////////
-
-// URL base de la API
 const URL_HOLIDAYS = '/v2/holidays/holidays';
+const festiusContainer = document.getElementById('festiusContainer');
+const mesSelect = document.getElementById('mes') as HTMLSelectElement;
+const tbodyDias = document.getElementById('dias');
 
-// Variables donde guardamos los elementos HTML según el ID
-const searchInput = document.getElementById("search") as HTMLInputElement;
-const holidaysContainer = document.getElementById("holidays-container");
-const searchButton = document.getElementById("search-button");
+// Función para generar el calendario y resaltar los festivos
+async function generarCalendario() {
+    const mes = mesSelect.value; // Mes seleccionado
+    const year = 2025; // Año fijo para el calendario
 
-interface Holiday {
-    name: string;
-    date: string;
+    // Limpiar contenido previo
+    tbodyDias.innerHTML = '';
+    festiusContainer.innerHTML = '';
+
+    // Obtener días festivos del mes seleccionado
+    const festivos = await obtenerFestivos(mes, year);
+
+    // Crear las filas del calendario
+    const primerDiaMes = new Date(year, parseInt(mes), 1);
+    const ultimoDiaMes = new Date(year, parseInt(mes) + 1, 0);
+
+    let diaSemana = primerDiaMes.getDay(); // Día de la semana del primer día (0=Domingo, 1=Lunes, etc.)
+    if (diaSemana === 0) diaSemana = 7; // Ajustar para empezar con Lunes
+
+    // Crear filas del calendario
+    let fila = document.createElement('tr');
+    for (let i = 1; i < diaSemana; i++) {
+        const celdaVacia = document.createElement('td');
+        fila.appendChild(celdaVacia);
+    }
+
+    for (let dia = 1; dia <= ultimoDiaMes.getDate(); dia++) {
+        const celda = document.createElement('td');
+        celda.textContent = dia.toString();
+
+        // Resaltar si el día es festivo
+        if (festivos.includes(dia)) {
+            celda.classList.add('festivo');
+        }
+
+        fila.appendChild(celda);
+
+        // Crear nueva fila al completar la semana
+        if ((diaSemana + dia - 1) % 7 === 0 || dia === ultimoDiaMes.getDate()) {
+            tbodyDias.appendChild(fila);
+            fila = document.createElement('tr');
+        }
+    }
+
+    mostrarFestivos(mes, festivos);
 }
 
-// Función asíncrona para obtener festividades de la API
-async function fetchHolidays() {
-    const year = searchInput?.value || '2025'; // Se toma el año ingresado por el usuario o 2025 por defecto
-    const queryParams = `?country=ES&state=CN&region=FU&year=${year}`; // Parámetros de la consulta
+// Función para obtener festivos desde la API
+async function obtenerFestivos(mes: string, year: number): Promise<number[]> {
+    const queryParams = `?country=ES&state=CN&region=FU&year=${year}`;
     try {
         const response = await fetch(`${URL_HOLIDAYS}${queryParams}`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
-    }
-    });
-    if (!response.ok) throw new Error('Error al obtener datos de la API');
+                'Content-Type': 'application/json'
+            }
+        });
+        if (!response.ok) throw new Error('Error al obtener datos de la API');
+        const data = await response.json();
 
-    const data: Holiday[] = await response.json(); // Se espera un arreglo de objetos Holiday
-
-    // Mostrar resultados en el contenedor HTML
-    if (holidaysContainer) {
-        holidaysContainer.innerHTML = data.length > 0
-            ? data.map(holiday => `
-                <div class="holiday-item">
-                    <h3>${holiday.name}</h3>
-                    <p>Fecha: ${holiday.date}</p>
-                </div>
-            `).join('')
-            : '<p>No se encontraron festividades para este año.</p>';
-        }
+        // Filtrar los festivos del mes seleccionado
+        return data
+            .filter((holiday: { date: string }) => new Date(holiday.date).getMonth() === parseInt(mes))
+            .map((holiday: { date: string }) => new Date(holiday.date).getDate());
     } catch (error) {
         console.error('Error:', error);
-        if (holidaysContainer) {
-        holidaysContainer.innerHTML = '<p>Error al obtener las festividades.</p>';
-        }
+        return [];
     }
 }
 
-// Listener para buscar cuando se hace clic en el botón
-searchButton?.addEventListener("click", fetchHolidays);
-
-// Listener para activar la búsqueda con la tecla Enter
-searchInput?.addEventListener("keypress", e => {
-    if (e.key === "Enter") {
-        fetchHolidays();
+// Función para mostrar festivos en texto
+function mostrarFestivos(mes: string, festivos: number[]) {
+    const nombresMes = [
+        'Gener', 'Febrer', 'Març', 'Abril', 'Maig', 'Juny',
+        'Juliol', 'Agost', 'Septembre', 'Octubre', 'Novembre', 'Decembre'
+    ];
+    festiusContainer.innerHTML = `<h3>Festius de ${nombresMes[parseInt(mes)]}:</h3>`;
+    if (festivos.length > 0) {
+        festivos.forEach(dia => {
+            const festiuItem = document.createElement('div');
+            festiuItem.textContent = `- Dia ${dia}`;
+            festiusContainer.appendChild(festiuItem);
+        });
+    } else {
+        festiusContainer.innerHTML += '<p>No hi ha festius aquest mes.</p>';
     }
-});
+}
