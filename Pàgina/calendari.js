@@ -93,7 +93,6 @@ function buscarFestivo() {
     });
 }
 
-
 // Función para agregar una tarea
 function agregarTarea(dia, celda) {
     const mesSeleccionado = mesSelect.value;
