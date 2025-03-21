@@ -28,6 +28,7 @@ API: /v2/holidays/holidays?country=ES&state=CN&region=FU&year=2025
 
 
 Código:
+
 // URL base de la API
 const URL_HOLIDAYS = '/v2/holidays/holidays';
 
