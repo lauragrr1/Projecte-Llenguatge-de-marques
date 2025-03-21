@@ -1,6 +1,6 @@
 # Projecte-Llenguatge-de-marques
 
-En aquest projecte volem fer un calendari del 2025 interactiu en el que tractarem les dades de la pàgina (https://date.nager.at/PublicHoliday/Spain/2025) on hi estan tots els festius d'Espanya i les dades de les tasques que podría introduir l'usuari per a que apareguin en el calendari.
+En aquest projecte volem fer un calendari del 2025 interactiu en el que tractarem les dades de la pàgina (https://api.generadordni.es/v2/holidays/holidays?country=ES&year=2025) on hi estan tots els festius d'Espanya i on es guardin les tasques que podría introduir l'usuari per a que apareguin en el calendari de manera local.
 
 ## Fitxers
 
